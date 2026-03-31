@@ -11,11 +11,28 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    // SPA fallback middleware: serve index.html for non-asset routes
+    middlewareMode: false,
+    // Fallback to index.html for client-side routing
+    fs: {
+      strict: true,
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  // Production build configuration
+  build: {
+    outDir: "dist",
+    sourcemap: false,
+    // minify: "terser",
+  },
+  // Preview configuration for local testing of production build
+  preview: {
+    host: "::",
+    port: 4173,
   },
 }));

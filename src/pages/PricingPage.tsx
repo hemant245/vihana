@@ -1,5 +1,7 @@
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import { SEOHead } from "@/components/SEOHead";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, X, Zap, Globe, BarChart3, Layers, Headphones, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -87,8 +89,23 @@ const highlights = [
 ];
 
 const PricingPage = () => (
-  <div className="min-h-screen bg-background">
-    <Navbar />
+  <>
+    <SEOHead
+      title="Pricing | vehana.ai — Transparent Plans for Every Scale"
+      description="Simple, flexible pricing for AI agents. Start free, scale as you grow. No upfront commitments — pay only for what you use."
+      path="/pricing"
+      keywords={["pricing", "plans", "affordable", "enterprise solution", "AI agents pricing"]}
+    />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Breadcrumbs */}
+      <section className="container mx-auto px-4 pt-8">
+        <Breadcrumb
+          items={[{ label: "Pricing", href: "/pricing" }]}
+          addSchema={true}
+        />
+      </section>
 
     {/* Hero */}
     <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
@@ -249,7 +266,7 @@ const PricingPage = () => (
           Join thousands of teams building smarter customer experiences with AI agents.
         </p>
         <div className="flex items-center justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <Button variant="outline" size="lg" className="text-base px-8 h-13 rounded-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+          <Button variant="outline" size="lg" className="text-base  px-8 h-13 rounded-full border-primary-foreground/30 hover:bg-primary-foreground/10" asChild>
             <Link to="/contact-sales">
               Contact Sales
               <ArrowRight className="ml-1 h-4 w-4" />
@@ -261,6 +278,7 @@ const PricingPage = () => (
 
     <Footer />
   </div>
+  </>
 );
 
 export default PricingPage;

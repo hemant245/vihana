@@ -65,7 +65,7 @@ const ContactSales = () => {
               <div className="space-y-5">
                 {[
                   { icon: Mail, label: "Email", value: "sales@vehana.ai" },
-                  { icon: Phone, label: "Phone", value: "+91 22 1234 5678" },
+                  { icon: Phone, label: "Phone", value: "+91 90910 91199" },
                   { icon: MapPin, label: "Office", value: "Powai, Mumbai, India" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3">

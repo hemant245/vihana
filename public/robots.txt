@@ -1,8 +1,13 @@
+# vehana.ai Robots Configuration
+# Allow all search engines to crawl the site
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +15,16 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Default rules for all bots
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap reference
+Sitemap: https://vehana.ai/sitemap.xml
+
+# Avoid crawling sensitive patterns
+Disallow: /*?*sort=
+Disallow: /*?*page=

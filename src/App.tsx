@@ -74,7 +74,7 @@ const App = () => (
         </Routes>
         <FloatingChat />
       </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
   </QueryClientProvider>
 );
 
