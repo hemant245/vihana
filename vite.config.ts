@@ -59,6 +59,8 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    assetsDir: "assets",
+    copyPublicDir: true,
   },
   // Preview configuration for local testing of production build
   preview: {
