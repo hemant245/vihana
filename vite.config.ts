@@ -23,16 +23,10 @@ export default defineConfig(({ mode }) => ({
       configureServer(server: ViteDevServer) {
         return () => {
           server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
-            // Skip asset requests
-            if (
-              req.url === "/" ||
-              req.url?.match(/^\/(?!.*\.)/) ||
-              req.url?.match(/\/$/)
-            ) {
-              // Check if it's not a static asset
-              if (!req.url?.match(/\.\w+$/)) {
-                req.url = "/";
-              }
+            const url = req.url || "/";
+            // Serve index.html for all non-file routes (no file extension)
+            if (url.startsWith("/") && !url.match(/\.\w+$/)) {
+              req.url = "/";
             }
             next();
           });
